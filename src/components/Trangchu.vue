@@ -1,12 +1,12 @@
 <template>
   <div>
     <ul v-if="posts && posts.length">
-      <li v-for="post of posts" :key="post.name">
+      <lo v-for="post of posts" :key="post.name">
         <p>
           <strong>{{ post.id }}</strong>
         </p>
         <p>{{ post.name }}</p>
-      </li>
+      </lo>
     </ul>
   </div>
 </template>

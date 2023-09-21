@@ -1,13 +1,18 @@
 <template>
   <div>
-    <ul v-if="posts && posts.length">
-      <lo v-for="post of posts" :key="post.name">
-        <p>
-          <strong>{{ post.id }}</strong>
-        </p>
-        <p>{{ post.name }}</p>
-      </lo>
-    </ul>
+    <button class="btn btn-primary">hi</button>
+    <table >
+      <thead>
+        name
+      </thead>
+      <td>
+        <tr v-if="posts && posts.length">
+          <ul v-for="post in posts" :key="post.id">
+            <p>{{ post.name }}</p>
+          </ul>
+        </tr>
+      </td>
+    </table>
   </div>
 </template>
 
@@ -17,14 +22,14 @@ export default {
   data() {
     return {
       posts: [],
-      errors: [],
+      data: [],
     };
   },
 
   // lấy dữ liệu khi component được tạo thành công
-  created() {
+  mounted() {
     axios
-      .get(`/home/products/list`)
+      .get(`/rest/category`)
       .then((response) => {
         this.posts = response.data;
       })
